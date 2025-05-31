@@ -1,3 +1,5 @@
+package QUEUE;
+
 class MyCircularQueue {
     private int[] queue;
     private int headIndex;
@@ -18,7 +20,6 @@ class MyCircularQueue {
         this.count += 1;
         return true;
     }
-    
     public boolean deQueue() {
         if (this.count == 0) {
             return false;
@@ -27,14 +28,12 @@ class MyCircularQueue {
         this.count -= 1;
         return true;
     }
-    
     public int Front() {
         if (this.count == 0) {
             return -1;
         }
         return this.queue[this.headIndex];
     }
-    
     public int Rear() {
         if (this.count == 0) {
             return -1;
@@ -42,16 +41,10 @@ class MyCircularQueue {
         int tailIndex = (this.headIndex + this.count -1) % this.capacity;
         return this.queue[tailIndex];
     }
-    
-    public boolean isEmpty() {
+    private boolean isEmpty() {
         return (this.count == 0);
     }
-    
-    public boolean isFull() {
+    private boolean isFull() {
         return (this.count == this.capacity);
     }
-}
-
-public static void main() {
-    MyCircularQueue q = new MyCircularQueue(5);
 }
